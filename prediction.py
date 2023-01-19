@@ -1,5 +1,4 @@
 
-from sklearn.ensemble import GradientBoostingClassifier
 import xgboost
 model = xgboost.XGBClassifier()
 model.load_model("trained_model.xgb")
