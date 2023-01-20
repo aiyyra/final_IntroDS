@@ -3,34 +3,34 @@ import pandas as pd
 import numpy as np
 from prediction import predict
 
-st.title("CC prediction")
-st.markdown("Model to predict credict card churn")
+st.title("Credit Card Prediction")
+st.markdown("Model to predict credit card churn of customer")
 
-st.header("Customer detail")
+st.header("Customer Detail : ")
 
-customerage = st.slider('age: ',value=20,max_value=80,min_value=10)
+customerage = st.slider('Age: ',value=20,max_value=80,min_value=10)
 #st.write(customerage," is customer age")
 
-dependent = st.selectbox("dependent count : ",(1,2,3,4,5,6,7))
+dependent = st.selectbox("Dependent Count : ",(1,2,3,4,5,6,7))
 
 
-mob = st.slider("months on book : ", min_value=0,max_value=100)
+mob = st.slider("Months on Book : ", min_value=0,max_value=100)
 
 
-relationship = st.selectbox("relationship count : ",(1,2,3,4,5,6,7))
+relationship = st.selectbox("Relationship Count : ",(1,2,3,4,5,6,7))
 
-minactive = st.slider("months inactive: ", min_value=0,max_value=100)
+minactive = st.slider("Months Inactive : ", min_value=0,max_value=100)
 
-contact = st.selectbox("contact count : ",(1,2,3,4,5,6,7))
+contact = st.selectbox("Contact Count : ",(1,2,3,4,5,6,7))
 
-openb = st.slider("open to buy: ", min_value=0,max_value=100000)
+openb = st.slider("Open to Buy: ", min_value=0,max_value=100000)
 
-utilizeratio = st.slider('average utilization ratio',max_value=1.00,min_value=0.00,value=0.250)
+utilizeratio = st.slider('Average utilization ratio : ',max_value=1.00,min_value=0.00,value=0.250)
 #st.write(utilizeratio,' is the utilazation ratio')
 
-gender = st.selectbox("gender: ",('male','female'))
+gender = st.selectbox("Gender: ",('Male','Female'))
 
-if(gender == 'male'):
+if(gender == 'Male'):
     genderE=0
 else:
     genderE=1
@@ -51,9 +51,9 @@ else:
 data = np.array([[customerage, dependent, mob, relationship, minactive, contact, openb, utilizeratio, genderE]])
 data
 
-if (st.button("Predict if customer will churn",key="try")):
+if (st.button("Press to predict customer behaviour",key="try")):
     result = predict(data)
     if result == 0:
-        st.write("stay")
+        st.write("Possibility customer will stay")
     else:
-        st.write("churn")
+        st.write("Possibility customer churn (closing card)")
