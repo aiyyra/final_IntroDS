@@ -28,7 +28,7 @@ openb = st.slider("Open to Buy: ", min_value=0,max_value=100000)
 utilizeratio = st.slider('Average Utilization Ratio : ',max_value=1.00,min_value=0.00,value=0.250)
 #st.write(utilizeratio,' is the utilazation ratio')
 
-gender = st.selectbox("Gender: ",('Male','Female'))
+gender = st.selectbox("Gender : ",('Male','Female'))
 
 if(gender == 'Male'):
     genderE=0
@@ -49,7 +49,7 @@ else:
 
 #could make table to show data
 data = np.array([[customerage, dependent, mob, relationship, minactive, contact, openb, utilizeratio, genderE]])
-st.markdown("Summary of data : ")
+st.header("Summary of Data : ")
 data
 
 
