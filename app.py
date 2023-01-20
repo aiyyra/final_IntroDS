@@ -6,12 +6,12 @@ from prediction import predict
 st.title("Credit Card Prediction")
 st.markdown("Model to predict credit card churn of customer")
 
-st.header("Customer Detail : ")
+st.header("Customer Details : ")
 
 customerage = st.slider('Age: ',value=20,max_value=80,min_value=10)
 #st.write(customerage," is customer age")
 
-dependent = st.selectbox("Dependent Count : ",(1,2,3,4,5,6,7))
+dependent = st.selectbox("Dependant Count : ",(1,2,3,4,5,6,7))
 
 
 mob = st.slider("Months on Book : ", min_value=0,max_value=100)
@@ -25,7 +25,7 @@ contact = st.selectbox("Contact Count : ",(1,2,3,4,5,6,7))
 
 openb = st.slider("Open to Buy: ", min_value=0,max_value=100000)
 
-utilizeratio = st.slider('Average utilization ratio : ',max_value=1.00,min_value=0.00,value=0.250)
+utilizeratio = st.slider('Average Utilization Ratio : ',max_value=1.00,min_value=0.00,value=0.250)
 #st.write(utilizeratio,' is the utilazation ratio')
 
 gender = st.selectbox("Gender: ",('Male','Female'))
@@ -49,7 +49,9 @@ else:
 
 #could make table to show data
 data = np.array([[customerage, dependent, mob, relationship, minactive, contact, openb, utilizeratio, genderE]])
+st.markdown("Summary of data : ")
 data
+
 
 if (st.button("Press to predict customer behaviour",key="try")):
     result = predict(data)
